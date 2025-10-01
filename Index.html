@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Adopción - Buscando a tu compañero perfecto</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ffb347;
+        }
+        
+        h1 {
+            color: #ff7e5f;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f5f5f5;
+        }
+        
+        h2 {
+            color: #ff7e5f;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-item input {
+            width: auto;
+            margin-right: 8px;
+        }
+        
+        .range-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .range-value {
+            min-width: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        button {
+            background: linear-gradient(to right, #ff7e5f, #ffb347);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 126, 95, 0.4);
+        }
+        
+        .required {
+            color: #ff5252;
+        }
+        
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background-color: #e8f5e9;
+            border-radius: 8px;
+            margin-top: 20px;
+            color: #2e7d32;
+        }
+        
+        .success-message h2 {
+            color: #2e7d32;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .checkbox-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Formulario de Adopción</h1>
+            <p class="subtitle">Ayúdanos a encontrar a tu compañero perfecto</p>
+        </header>
+        
+        <form id="adoptionForm">
+            <!-- Información personal -->
+            <div class="form-section">
+                <h2>Información Personal</h2>
+                
+                <div class="form-group">
+                    <label for="fullName">Nombre completo <span class="required">*</span></label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo electrónico <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Teléfono de contacto <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Dirección <span class="required">*</span></label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+            </div>
+            
+            <!-- Preferencias del perro -->
+            <div class="form-section">
+                <h2>Preferencias del Perro</h2>
+                
+                <div class="form-group">
+                    <label for="size">Tamaño preferido</label>
+                    <select id="size" name="size">
+                        <option value="">No tengo preferencia</option>
+                        <option value="small">Pequeño (hasta 10 kg)</option>
+                        <option value="medium">Mediano (10-25 kg)</option>
+                        <option value="large">Grande (más de 25 kg)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="age">Edad preferida</label>
+                    <select id="age" name="age">
+                        <option value="">No tengo preferencia</option>
+                        <option value="puppy">Cachorro (0-1 año)</option>
+                        <option value="young">Joven (1-3 años)</option>
+                        <option value="adult">Adulto (3-8 años)</option>
+                        <option value="senior">Senior (más de 8 años)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="energyLevel">Nivel de energía</label>
+                    <div class="range-container">
+                        <span>Tranquilo</span>
+                        <input type="range" id="energyLevel" name="energyLevel" min="1" max="5" value="3">
+                        <span>Activo</span>
+                        <span class="range-value" id="energyValue">3</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Género</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="radio" id="male" name="gender" value="male">
+                            <label for="male">Macho</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">Hembra</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="anyGender" name="gender" value="any" checked>
+                            <label for="anyGender">Cualquiera</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Características especiales</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="goodWithKids" name="goodWithKids">
+                            <label for="goodWithKids">Bueno con niños</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="goodWithDogs" name="goodWithDogs">
+                            <label for="goodWithDogs">Bueno con otros perros</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="goodWithCats" name="goodWithCats">
+                            <label for="goodWithCats">Bueno con gatos</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="hypoallergenic" name="hypoallergenic">
+                            <label for="hypoallergenic">Hipoalergénico</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Situación del hogar -->
+            <div class="form-section">
+                <h2>Situación del Hogar</h2>
+                
+                <div class="form-group">
+                    <label for="homeType">Tipo de vivienda</label>
+                    <select id="homeType" name="homeType">
+                        <option value="">Selecciona una opción</option>
+                        <option value="house">Casa con jardín</option>
+                        <option value="apartment">Apartamento</option>
+                        <option value="farm">Casa de campo/finca</option>
+                        <option value="other">Otro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="yardSize">Tamaño del patio/jardín (si aplica)</label>
+                    <select id="yardSize" name="yardSize">
+                        <option value="">No aplica</option>
+                        <option value="small">Pequeño</option>
+                        <option value="medium">Mediano</option>
+                        <option value="large">Grande</option>
+                        <option value="veryLarge">Muy grande</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="familyMembers">Número de personas en el hogar</label>
+                    <input type="number" id="familyMembers" name="familyMembers" min="1" max="20">
+                </div>
+                
+                <div class="form-group">
+                    <label for="childrenAges">Edades de los niños (si aplica)</label>
+                    <input type="text" id="childrenAges" name="childrenAges" placeholder="Ej: 5, 8, 12">
+                </div>
+                
+                <div class="form-group">
+                    <label for="otherPets">¿Tienes otras mascotas?</label>
+                    <textarea id="otherPets" name="otherPets" rows="3" placeholder="Describe qué mascotas tienes y cómo son"></textarea>
+                </div>
+            </div>
+            
+            <!-- Experiencia y compromiso -->
+            <div class="form-section">
+                <h2>Experiencia y Compromiso</h2>
+                
+                <div class="form-group">
+                    <label for="dogExperience">Experiencia previa con perros</label>
+                    <select id="dogExperience" name="dogExperience">
+                        <option value="">Selecciona una opción</option>
+                        <option value="none">Ninguna experiencia</option>
+                        <option value="some">Alguna experiencia</option>
+                        <option value="experienced">Experiencia considerable</option>
+                        <option value="expert">Mucha experiencia</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="timeAlone">Tiempo que el perro pasaría solo al día</label>
+                    <select id="timeAlone" name="timeAlone">
+                        <option value="">Selecciona una opción</option>
+                        <option value="less2">Menos de 2 horas</option>
+                        <option value="2to4">2-4 horas</option>
+                        <option value="4to6">4-6 horas</option>
+                        <option value="more6">Más de 6 horas</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dailyWalks">Paseos diarios que puedes ofrecer</label>
+                    <select id="dailyWalks" name="dailyWalks">
+                        <option value="">Selecciona una opción</option>
+                        <option value="1">1 paseo corto</option>
+                        <option value="2">2 paseos</option>
+                        <option value="3">3 o más paseos</option>
+                        <option value="free">Acceso libre a jardín/patio</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="additionalInfo">Información adicional</label>
+                    <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Cuéntanos cualquier otra información relevante sobre tu situación, estilo de vida o preferencias específicas"></textarea>
+                </div>
+            </div>
+            
+            <button type="submit">Enviar Solicitud de Adopción</button>
+        </form>
+        
+        <div class="success-message" id="successMessage">
+            <h2>¡Gracias por tu solicitud!</h2>
+            <p>Hemos recibido tu formulario de adopción y nos pondremos en contacto contigo pronto para continuar con el proceso.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Actualizar valor del rango de energía
+            const energyLevel = document.getElementById('energyLevel');
+            const energyValue = document.getElementById('energyValue');
+            
+            energyLevel.addEventListener('input', function() {
+                energyValue.textContent = this.value;
+            });
+            
+            // Manejar envío del formulario
+            const form = document.getElementById('adoptionForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validar campos requeridos
+                const requiredFields = form.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.style.borderColor = 'red';
+                    } else {
+                        field.style.borderColor = '#ddd';
+                    }
+                });
+                
+                if (isValid) {
+                    // Aquí normalmente enviarías los datos a un servidor
+                    // Por ahora solo mostramos el mensaje de éxito
+                    form.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    
+                    // Opcional: Mostrar resumen de los datos ingresados
+                    console.log('Datos del formulario:');
+                    const formData = new FormData(form);
+                    for (let [key, value] of formData.entries()) {
+                        console.log(`${key}: ${value}`);
+                    }
+                } else {
+                    alert('Por favor, completa todos los campos obligatorios marcados con *.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
